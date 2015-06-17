@@ -104,9 +104,6 @@ init:
 
   // <SubTexture name="blue_button00.png" x="0" y="94" width="190" height="49"/>
 
-  SDL_Surface *background;
-  background = (SDL_Surface*) IMG_Load("pixs/background.png");
-  background = SDL_DisplayFormat(background);
   SDL_Surface *blue, *red, *green, *yellow;
   blue = (SDL_Surface*) IMG_Load("pixs/blue.png");
   blue = SDL_DisplayFormat(blue);
@@ -121,9 +118,9 @@ init:
   yellow = (SDL_Surface*) IMG_Load("pixs/yellow.png");
   yellow = SDL_DisplayFormat(yellow);
   SDL_SetColorKey(yellow, SDL_RLEACCEL | SDL_SRCCOLORKEY, colorkey );
-  SDL_Surface *warning;
-  warning = (SDL_Surface*) IMG_Load("pixs/carreaux.png");
-  warning = SDL_DisplayFormat(warning);
+  SDL_Surface *papertiles;
+  papertiles = (SDL_Surface*) IMG_Load("pixs/papertiles.png");
+  papertiles = SDL_DisplayFormat(papertiles);
   SDL_Surface *target;
   target = (SDL_Surface*) IMG_Load("pixs/target.png");
   target = SDL_DisplayFormat(target);
@@ -142,7 +139,7 @@ init:
 
   for(destination.y = 0; destination.y + destination.h <= SCREENH + 49; destination.y += destination.h) {
     for(destination.x = 0; destination.x + destination.w <= SCREENW; destination.x += destination.w) {
-      SDL_BlitSurface(warning, &source, screen, &destination);
+      SDL_BlitSurface(papertiles, &source, screen, &destination);
     }
   }
 
@@ -211,7 +208,7 @@ init:
     /* Draw background */
     for(destination.y = 49; destination.y + destination.h <= SCREENH + 49; destination.y += destination.h) {
       for(destination.x = 0; destination.x + destination.w <= SCREENW; destination.x += destination.w) {
-        SDL_BlitSurface(warning, &source, screen, &destination);
+        SDL_BlitSurface(papertiles, &source, screen, &destination);
       }
     }
     source.x = 0;
