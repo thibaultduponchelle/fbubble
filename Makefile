@@ -1,5 +1,3 @@
- 
-
 all: frosted-bubble
 
 frosted-bubble: main.o bubble.o state.o board.o ui.o
